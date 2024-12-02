@@ -508,27 +508,27 @@ export default function RapidPass() {
             </div>
 
             {/* Pass Types Grid */}
-            <div className="grid grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
               {PASS_TYPES.map((pass) => (
                 <motion.div
                   key={pass.name}
                   whileHover={{ y: -4 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-white/20 
+                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 
                             shadow-lg shadow-black/5 text-center"
                 >
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center 
-                                mx-auto mb-4">
-                    <FaTicketAlt className="text-primary text-xl" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-xl flex items-center justify-center 
+                                mx-auto mb-3 sm:mb-4">
+                    <FaTicketAlt className="text-primary text-lg sm:text-xl" />
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">{pass.name}</h4>
-                  <div className="text-2xl font-bold text-primary mb-3">
+                  <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">{pass.name}</h4>
+                  <div className="text-xl sm:text-2xl font-bold text-primary mb-2 sm:mb-3">
                     ৳{pass.price}
                   </div>
-                  <p className="text-gray-600 text-sm mb-4">{pass.description}</p>
-                  <ul className="text-sm text-gray-500 space-y-2">
+                  <p className="text-sm text-gray-600 mb-3 sm:mb-4">{pass.description}</p>
+                  <ul className="text-xs sm:text-sm text-gray-500 space-y-1.5 sm:space-y-2">
                     {pass.features.map((feature, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary/60 flex-shrink-0" />
+                        <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary/60 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -538,19 +538,20 @@ export default function RapidPass() {
             </div>
 
             {/* Apply Button */}
-            <div className="text-center">
+            <div className="text-center px-4 sm:px-0">
               <motion.button
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setShowApplyDialog(true)}
-                className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 
+                className="inline-flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 
                           rounded-xl font-medium shadow-lg shadow-primary/20 
-                          hover:shadow-xl hover:shadow-primary/30 transition-all duration-200"
+                          hover:shadow-xl hover:shadow-primary/30 transition-all duration-200
+                          w-full sm:w-auto"
               >
                 <FaIdCard className="text-xl" />
                 <span>Apply Now</span>
               </motion.button>
-              <p className="mt-4 text-sm text-gray-500">
+              <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-500">
                 Get your Rapid Pass today and start saving on your daily commute
               </p>
             </div>
