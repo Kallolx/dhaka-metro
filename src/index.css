@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+  }
+
+  select, input {
+    @apply form-input px-4 py-2 border-gray-300 rounded-lg;
+    @apply focus:border-primary focus:ring-1 focus:ring-primary/20;
+    @apply focus:outline-none;
+  }
+
+  /* Remove default focus styles */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    @apply focus:outline-none;
+  }
+
+  /* Remove default button styles */
+  button {
+    @apply select-none;
+  }
+
+  /* Custom focus styles only for keyboard navigation */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary/20 ring-offset-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary border-2 border-primary hover:bg-gray-50 shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-white text-white hover:bg-white/10;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/40 hover:bg-primary/60 rounded-full transition-colors;
+}
+
+/* Ensure proper viewport height and prevent overflow */
+html, body {
+  @apply h-full overflow-x-hidden;
+}
+
+#root {
+  @apply min-h-full flex flex-col;
+}
+
+/* Make main content take remaining space */
+main {
+  @apply flex-1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove outline for buttons and interactive elements */
+button:focus, 
+a:focus, 
+select:focus,
+input:focus {
+  outline: none;
+}
